@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Roots
+{
+    static double poly(double[] c, double i){
+        int x=c.length -1;
+        double total=0;
+        int n=0;
+        while(n<x) {
+            total += c[n] * Math.pow((i - n), x);
+        }
+        return total;
+    }
+
+    static double[] diff(double[] C){
+        int x=C.length-1;
+        int n=0;
+        double[] returnValue= new double[x];
+        while(n<x){
+            returnValue[n]=C[n]*(x-1);
+            n++;
+        }
+        return returnValue;
+    }
+
+    static double findRoot(double[] c, double a, double b, double tolerance){
+        double resolution=.01;
+        tolerance=.0000001;
+        double threshold=.001;
+        int n=0;
+        while(){
+            
+        }
+    }
+
+    public static void main(String[] args){
+        int degree=0;
+        int i=0;
+        Scanner user_input=new Scanner(System.in);
+        System.out.println("Enter the degree: ");
+        degree= user_input.nextInt();
+        double arrg[]=new double[degree+1];
+        System.out.println("Enter the " + (degree-1)+ " coefficients: ");
+        while(i<degree){
+            arrg[i]=user_input.nextDouble();
+            i++;
+        }
+        System.out.println("Enter the left endpoint: ");
+        int left= user_input.nextInt();
+        System.out.println("Enter the right endpoint: ");
+        int right=user_input.nextInt();
+    }
+}
