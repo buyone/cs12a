@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Roots
+public class Realroots
 {
 	public static void main(String[] args)
 	{
@@ -39,7 +39,7 @@ public class Roots
 				x1 = (findRoot(C0,x1,x2,(Math.pow(10,-7)),0,0,0))+resolution;
 				
 			}
-			/*
+			
 			else if(poly(diff(C0),temp1)*poly(diff(C0),a1)<0)
 			{
 				
@@ -55,7 +55,7 @@ public class Roots
 				x1 = ((findRoot(C0,x1,x2,(Math.pow(10,-7)),0,0,0))+resolution);
 				
 			}
-			*/
+			
 			//ROTCOT - 3 WHY didnt 3 get process?
 			
 		}
@@ -68,32 +68,29 @@ public class Roots
 		
 	
 	}
+    static double poly(double[] c, double i){
+        int x=c.length -1;
+        double total=0;
+        int n=x;
+        while(n>=0) {
+            total += c[n] * Math.pow(i, x);
+            x--;
+            n--;
+        }
+        return total;
+    }
 
-	
-	static double poly(double[] C, double x)
-	{
-		double sum = 0;
-		int pow = C.length-1;
-		for(int i =C.length-1;i>=0;i--)
-		{
-			sum = sum+C[i]*Math.pow(x,(pow));
-			pow--;
-		}
-		return sum;
-	}
-	
-	static double[] diff(double[] C)
-	{
-		int pow = C.length-1;
-		double[] D = new double[C.length];
-		for(int i =C.length-1;i>=0;i--)
-		{
-			D[i] = C[i]*pow;
-			pow--;
-		}
-		return D;
-	}
-	 
+    static double[] diff(double[] C){
+        int x=C.length-1;
+        int n=x;
+        double[] returnValue= new double[C.length];
+        while(n>=0){
+            returnValue[n]=C[n]*(x);
+            n--;
+            x--;
+        }
+        return returnValue;
+    }
 	static double findRoot(double[] C, double a, double b, double tolerance, double temp, double mid, double width)
 	{
 		double resolution = Math.pow(10,-2);
@@ -124,7 +121,7 @@ public class Roots
 				}
 				break;
 			}
-			/*
+			
 			else if(poly(diff(C),temp)*poly(diff(C),a)<0)
 			{
 				width = a - temp;
@@ -145,7 +142,7 @@ public class Roots
 				}
 				
 				break;
-			}*/
+			}
 			
 		}	
 		
