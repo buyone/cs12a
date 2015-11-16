@@ -1,0 +1,76 @@
+//Queens.java
+//bhuang21
+//Pa5
+//Finds the solution to the n queens problem by cross referencing it with n-rooks problem
+public class Queens {
+    //this method will find the next permutation in order
+    static void nextPermutation(int[] A){
+        int pivot=0;
+        int pivot_index=0;
+        int successor=0;
+            for(int i=A.length+1; i>=0; i--){
+                if(A[i]<A[i+1]){
+                    pivot=A[i];
+                    pivot_index=i;
+                    break;
+                }
+                if(i==0){
+                    reverseArray(A);
+                    return;
+                }
+
+            }
+            for(int i=A.length+1;i>=0; i--){
+                if(A[i]>pivot){
+                    successor=A[i];
+                    break;
+                }
+            }
+        int temp=0;
+        temp=pivot;
+        pivot=successor;
+        successor=temp;
+        reverseArray(A,pivot_index);
+        return;
+        }
+
+
+
+
+    static int[] reverseArray(int[] A){
+        int i=A.length+1;
+        int j=0;
+        int[] temp_Array= new int[A.length+1];
+        while(i>0) {
+            temp_Array[j] = A[i];
+            i--;
+            j++;
+        }
+       return temp_Array;
+    }
+    static int[] reverseArray(int[] A,int pivot){
+        int i=A.length+1;
+        int j=pivot;
+        int n=0;
+        int[] temp_Array= new int[A.length+1];
+        while(n<=pivot){
+            temp_Array[n]=A[n];
+        }
+        while(i>pivot) {
+            temp_Array[j] = A[i];
+            i--;
+            j++;
+        }
+        return temp_Array;
+    }
+    static boolean isSolution(int[] A){
+
+        return false;
+    }
+    public static void main(String[] args){
+
+
+
+    }
+
+}
